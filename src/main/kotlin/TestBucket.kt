@@ -11,23 +11,23 @@ fun main(args: Array<String>) {
 
     val tBucket = Bucket(Entity(), "my property")
 
-    expectThat(tBucket).first("whatever") //bad
-    expectThat(tBucket).second("whatever") //bad
-    expectThat(tBucket).third("whatever") //good
-    expectThat(tBucket).fourth("whatever") //bad
-    expectThat(tBucket).fifth("whatever") //bad
-    expectThat(tBucket).sixth("whatever") //good
-    expectThat(tBucket).seventh("whatever") //bad
-    expectThat(tBucket).eighth("whatever") //bad
-    expectThat(tBucket).ninth("whatever") //good
-    expectThat(tBucket).tenth("whatever") //bad
-    expectThat(tBucket).eleventh("whatever") //bad
-    expectThat(tBucket).twelfth("whatever") //good
+    expectThat(tBucket).builderOutAny("whatever") //bad
+    expectThat(tBucket).builderStar("whatever") //bad
+    expectThat(tBucket).builderT("whatever") //good
+    expectThat(tBucket).describeOutAny("whatever") //bad
+    expectThat(tBucket).describeStar("whatever") //bad
+    expectThat(tBucket).describeT("whatever") //good
+    expectThat(tBucket).inlineDescribeOutAny("whatever") //bad
+    expectThat(tBucket).inlineDescribeStar("whatever") //bad
+    expectThat(tBucket).inlineDescribeT("whatever") //good
+    expectThat(tBucket).inlineBuilderOutAny("whatever") //bad
+    expectThat(tBucket).inlineBuilderStar("whatever") //bad
+    expectThat(tBucket).inlineBuilderT("whatever") //good
 }
 
 
 
-fun Assertion.Builder<Bucket<out Any>>.first(p: String) {
+fun Assertion.Builder<Bucket<out Any>>.builderOutAny(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -36,7 +36,7 @@ fun Assertion.Builder<Bucket<out Any>>.first(p: String) {
     }
 }
 
-fun Assertion.Builder<Bucket<*>>.second(p: String) {
+fun Assertion.Builder<Bucket<*>>.builderStar(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -45,7 +45,7 @@ fun Assertion.Builder<Bucket<*>>.second(p: String) {
     }
 }
 
-fun <T> Assertion.Builder<Bucket<T>>.third(p: String) {
+fun <T> Assertion.Builder<Bucket<T>>.builderT(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -55,7 +55,7 @@ fun <T> Assertion.Builder<Bucket<T>>.third(p: String) {
 }
 
 
-fun DescribeableBuilder<Bucket<out Any>>.fourth(p: String) {
+fun DescribeableBuilder<Bucket<out Any>>.describeOutAny(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -64,7 +64,7 @@ fun DescribeableBuilder<Bucket<out Any>>.fourth(p: String) {
     }
 }
 
-fun DescribeableBuilder<Bucket<*>>.fifth(p: String) {
+fun DescribeableBuilder<Bucket<*>>.describeStar(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -73,7 +73,7 @@ fun DescribeableBuilder<Bucket<*>>.fifth(p: String) {
     }
 }
 
-fun <T> DescribeableBuilder<Bucket<T>>.sixth(p: String) {
+fun <T> DescribeableBuilder<Bucket<T>>.describeT(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -82,7 +82,7 @@ fun <T> DescribeableBuilder<Bucket<T>>.sixth(p: String) {
     }
 }
 
-inline fun DescribeableBuilder<Bucket<out Any>>.seventh(p: String) {
+inline fun DescribeableBuilder<Bucket<out Any>>.inlineDescribeOutAny(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -91,7 +91,7 @@ inline fun DescribeableBuilder<Bucket<out Any>>.seventh(p: String) {
     }
 }
 
-inline fun DescribeableBuilder<Bucket<*>>.eighth(p: String) {
+inline fun DescribeableBuilder<Bucket<*>>.inlineDescribeStar(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -100,7 +100,7 @@ inline fun DescribeableBuilder<Bucket<*>>.eighth(p: String) {
     }
 }
 
-inline fun <T> DescribeableBuilder<Bucket<T>>.ninth(p: String) {
+inline fun <T> DescribeableBuilder<Bucket<T>>.inlineDescribeT(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -109,7 +109,7 @@ inline fun <T> DescribeableBuilder<Bucket<T>>.ninth(p: String) {
     }
 }
 
-inline fun Assertion.Builder<Bucket<out Any>>.tenth(p: String) {
+inline fun Assertion.Builder<Bucket<out Any>>.inlineBuilderOutAny(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -118,7 +118,7 @@ inline fun Assertion.Builder<Bucket<out Any>>.tenth(p: String) {
     }
 }
 
-inline fun Assertion.Builder<Bucket<*>>.eleventh(p: String) {
+inline fun Assertion.Builder<Bucket<*>>.inlineBuilderStar(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
@@ -127,7 +127,7 @@ inline fun Assertion.Builder<Bucket<*>>.eleventh(p: String) {
     }
 }
 
-inline fun <T> Assertion.Builder<Bucket<T>>.twelfth(p: String) {
+inline fun <T> Assertion.Builder<Bucket<T>>.inlineBuilderT(p: String) {
     assert("has property", p) {
         when (val prop = it.property) {
             p -> pass()
