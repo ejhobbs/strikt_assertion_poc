@@ -1,0 +1,4 @@
+rootProject.name = 'strikt_assertion_poc'
+
+
+enableFeaturePreview('GRADLE_METADATA')
