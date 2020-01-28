@@ -11,18 +11,18 @@ fun main(args: Array<String>) {
 
     val tBucket = BucketT(Entity(), "my property")
 
-    expectThat(tBucket).first("whatever")
-    expectThat(tBucket).second("whatever")
-    expectThat(tBucket).third("whatever")
-    expectThat(tBucket).fourth("whatever")
-    expectThat(tBucket).fifth("whatever")
-    expectThat(tBucket).sixth("whatever")
-    expectThat(tBucket).seventh("whatever")
-    expectThat(tBucket).eighth("whatever")
-    expectThat(tBucket).ninth("whatever")
-    expectThat(tBucket).tenth("whatever")
-    expectThat(tBucket).eleventh("whatever")
-    expectThat(tBucket).twelfth("whatever")
+    expectThat(tBucket).first("whatever") //bad
+    expectThat(tBucket).second("whatever") //bad
+    expectThat(tBucket).third("whatever") //good
+    expectThat(tBucket).fourth("whatever") //bad
+    expectThat(tBucket).fifth("whatever") //bad
+    expectThat(tBucket).sixth("whatever") //good
+    expectThat(tBucket).seventh("whatever") //bad
+    expectThat(tBucket).eighth("whatever") //bad
+    expectThat(tBucket).ninth("whatever") //good
+    expectThat(tBucket).tenth("whatever") //bad
+    expectThat(tBucket).eleventh("whatever") //bad
+    expectThat(tBucket).twelfth("whatever") //good
 }
 
 fun Assertion.Builder<BucketT<out Any>>.first(p: String) {
